@@ -1,0 +1,28 @@
+{
+  "name": "automation-flagging-taspen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cucumber-js",
+    "test:report": "npx cucumber-js && node test/helper/report.js",
+    "test:flagging": "npx cucumber-js --tags @flagging && node test/helper/report.js",
+    "test:login": "npx cucumber-js --tags @flagging-home",
+    "test:home": "npx cucumber-js --tags @flagging-home",
+    "check:booking": "node scripts/checking-booking.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "multiple-cucumber-html-reporter": "^3.10.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "xlsx": "^0.18.5"
+  }
+}

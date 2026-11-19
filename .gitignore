@@ -1,0 +1,13 @@
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.DS_Store
+PANDUAN-INSTALL-WINDOWS-WSL.txt
+package-lock.json
+/capture
+.env.example
+.env
