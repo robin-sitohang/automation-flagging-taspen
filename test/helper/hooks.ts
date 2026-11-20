@@ -16,12 +16,18 @@ const browsers: Record<string, typeof chromium> = { chromium, firefox, webkit };
 
 Before({ timeout: 30000 }, async function () {
   const launch = browsers[BROWSER] || chromium;
+  const channel = process.env.BROWSER_CHANNEL || (process.platform === 'darwin' ? 'chrome' : undefined);
 
-  this.browser = await launch.launch({ headless: HEADLESS, slowMo: SLOW_MO });
+  this.browser = await launch.launch({
+    headless: HEADLESS,
+    slowMo: SLOW_MO,
+    channel,
+    args: ['--start-maximized'],
+  });
 
   this.context = await this.browser.newContext({
     baseURL: process.env.BASE_URL,
-    viewport: { width: VIEWPORT_WIDTH, height: VIEWPORT_HEIGHT },
+    viewport: null,
   });
 
   this.page = await this.context.newPage();

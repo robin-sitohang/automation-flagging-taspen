@@ -12,19 +12,24 @@ cp .env.example .env
 ```
 
 Isi `FLAGGING_USERNAME` dan `FLAGGING_PASSWORD` di `.env` (jangan commit file
-tersebut). Jalankan scenario login dengan:
+tersebut).
 
+## Menjalankan
+
+Jalankan semua scenario:
 ```bash
-npm run test:login
+npm test
 ```
 
-Scenario menguji bahwa modal **Verifikasi Google Authenticator** tampil setelah
-login, lalu memverifikasi halaman utama. Kode MFA tidak diotomatisasi; input
-manual saat browser terbuka.
-
-Proses cek NOPEN/booking dari Excel:
+Jalankan berdasarkan tag:
 ```bash
-npm run check:booking
+npm test -- --tags @flagging-home
 ```
+
+Atau langsung:
+```bash
+npx cucumber-js --tags @flagging-home
+```
+
 Isi daftar NOPEN di `data/nopen.xlsx` (kolom `NOPEN`). Hasil akan disimpan
-di `reports/hasil-booking.xlsx` dengan kolom NOPEN, Keterangan, dan Nilai.
+di `reports/hasil-booking.xlsx`.
